@@ -17,11 +17,13 @@
         <a-assets>
           <img id="mindfulness" src="href/mindfulness.png">
           <img id="breath" src="href/breath.jpg">
+          <audio id="intro" src="intro.mp3" preload="auto"></audio>
         </a-assets>
         <a-sky color="white"></a-sky>
         <a-entity text="Choose your mental wellness exercise" color="black" position="0 1.28 -5"></a-entity>
         <a-link position="-2 1.25 -5" href="mindfulness.html" title="Mindfulness Exercise" image="#mindfulness"></a-link>
         <a-link position="3 1.25 -5" href="breathing.html" title="Breathing Exercise" image="#breath"></a-link>
+        <a-entity sound="src: #intro; autoplay: true; loop: true; volume: 1"></a-entity>
     </a-scene>
     <script src="main.js"></script>
 </body>
