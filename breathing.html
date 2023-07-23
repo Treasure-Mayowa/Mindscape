@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing - Mindscape</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="href/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="href/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="href/favicon-16x16.png">
+    <link rel="manifest" href="href/site.webmanifest">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-state-component@7.1.0/dist/aframe-state-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+</head>
+<body>
+    <a-scene>
+      <a-assets>
+        <audio src="sound.mp3" id="relax" preload="auto"></audio>
+        <audio src="breathing.MP3" id="breathing" preload="auto"></audio>
+      </a-assets>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" id="sphere"></a-sphere>
+      <a-animate></a-animate> 
+      <a-entity sound="src: #breathing; autoplay: true; loop: false; volume: 7"></a-entity>
+      <a-entity sound="src: #relax; autoplay: true; loop: true; volume: 1" id="sound"></a-entity>
+      <a-entity breathing-animation></a-entity>
+      <a-sky color="white"></a-sky>
+    </a-scene>  
+    <script src="main.js"></script>
+</body>
+</html>
