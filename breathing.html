@@ -19,10 +19,10 @@
         <audio src="breathing.mp3" id="breathing" preload="auto"></audio>
       </a-assets>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" id="sphere"></a-sphere>
-      <a-animate></a-animate> 
+      <a-animate></a-animate>
+      <a-entity breathing-animation></a-entity>
       <a-entity sound="src: #breathing; autoplay: true; loop: false; volume: 7"></a-entity>
       <a-entity sound="src: #relax; autoplay: true; loop: true; volume: 1" id="sound"></a-entity>
-      <a-entity breathing-animation></a-entity>
       <a-sky color="black"></a-sky>
     </a-scene>  
     <script src="main.js"></script>

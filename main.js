@@ -66,22 +66,3 @@ AFRAME.registerComponent('sphere-animation', {
     }
   });
   
-AFRAME.registerComponent('text', {
-  schema: {
-    value: { type: 'string', default: '' },
-    color: { type: 'color', default: 'black' },
-    position: { type: 'vec3', default: { x: 0, y: 0, z: 0 } }
-  },
-  init: function () {
-    // Create the text element
-    var textEl = document.createElement('a-entity');
-    textEl.setAttribute('text', {
-      value: this.data.value,
-      color: this.data.color
-    });
-    textEl.setAttribute('position', this.data.position);
-
-    // Append the text element to the scene
-    this.el.appendChild(textEl);
-  }
-});
