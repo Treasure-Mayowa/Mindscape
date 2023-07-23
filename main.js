@@ -28,20 +28,14 @@ AFRAME.registerComponent('sphere-animation', {
 
   AFRAME.registerComponent('breathing-animation', {
     init: function () {
-
       const breathingSphere = document.querySelector('#sphere');
-
-      // Define the duration of each breath cycle (inhale and exhale)
       const breathDuration = 9000;
-  
-      // Define the number of breath cycles
       const numBreaths = 1000;
+      let currentBreathCycle = 0;
   
-      // Function to animate a single breath cycle
       function animateBreathCycle() {
-
         // Scale the sphere up (inhale)
-        breathingSphere.setAttribute('animation__scaleUp', {
+        breathingSphere.setAttribute('animation', {
           property: 'scale',
           to: '1.2 1.2 1.2',
           dur: breathDuration / 2,
@@ -50,7 +44,7 @@ AFRAME.registerComponent('sphere-animation', {
   
         // Scale the sphere down (exhale)
         setTimeout(() => {
-          breathingSphere.setAttribute('animation__scaleDown', {
+          breathingSphere.setAttribute('animation', {
             property: 'scale',
             to: '1 1 1',
             dur: breathDuration / 2,
@@ -59,18 +53,18 @@ AFRAME.registerComponent('sphere-animation', {
         }, breathDuration / 2);
       }
   
-      // Function to start the breathing animation
-      function startBreathingAnimation() {
-        for (let i = 0; i < numBreaths; i++) {
-          setTimeout(animateBreathCycle, i * breathDuration);
+      function animateNextBreathCycle() {
+        animateBreathCycle();
+        currentBreathCycle++;
+  
+        if (currentBreathCycle < numBreaths) {
+          setTimeout(animateNextBreathCycle, breathDuration);
         }
       }
   
-      // Start the breathing animation after the scene loads
-      window.addEventListener('DOMContentLoaded', startBreathingAnimation());
-
-    
-}});
+      animateNextBreathCycle(); // Start the breathing animation
+    }
+  });
   
 AFRAME.registerComponent('text', {
   schema: {
